@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}} - Clientes{% endblock %}
+
+{% block body %}
+{{parent()}}
+    <h1>Cliente</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>PrimerNombre</th>
+                <th>SegundoNombre</th>
+                <th>PrimerApellido</th>
+                <th>SegundoApellido</th>
+                <th>Dpi</th>
+                <th>acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cliente in clientes %}
+            <tr>
+                <td>{{ cliente.id }}</td>
+                <td>{{ cliente.primerNombre }}</td>
+                <td>{{ cliente.segundoNombre }}</td>
+                <td>{{ cliente.primerApellido }}</td>
+                <td>{{ cliente.segundoApellido }}</td>
+                <td>{{ cliente.dpi }}</td>
+                <td>
+                    <a href="{{ path('cliente_show', {'id': cliente.id}) }}" class="btn btn-outline-info btn-sm" tabindex="-1" role="button" aria-disabled="true">Visualizar</a>
+                    <a href="{{ path('cliente_edit', {'id': cliente.id}) }}" class="btn btn-outline-primary btn-sm" tabindex="-1" role="button" aria-disabled="true">Editar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">se encuentras datos</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('cliente_new') }}" class="btn btn-outline-success btn-sm" tabindex="-1" role="button" aria-disabled="true">Crear nuevo</a>
+    <a href="{{ path('cliente_pdf') }}" class="btn btn-outline-danger btn-sm" tabindex="-1" role="button" aria-disabled="true">Imprimir pdf</a>
+{% endblock %}

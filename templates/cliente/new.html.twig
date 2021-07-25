@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}} Nuevo Cliente{% endblock %}
+
+{% block body %}
+{{parent()}}
+    <h1>Nuevo Cliente</h1>
+
+    {{ include('cliente/_form.html.twig') }}
+
+
+    <a href="{{ path('cliente_index') }}" class="btn btn-outline-info btn-sm" tabindex="-1" role="button" aria-disabled="true">Regresar a clientes</a>
+
+{% endblock %}

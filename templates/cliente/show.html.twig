@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}} - Cliente{% endblock %}
+
+{% block body %}
+{{parent()}}
+    <h1>Cliente</h1>
+
+    <table class="table table-hover">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cliente.id }}</td>
+            </tr>
+            <tr>
+                <th>PrimerNombre</th>
+                <td>{{ cliente.primerNombre }}</td>
+            </tr>
+            <tr>
+                <th>SegundoNombre</th>
+                <td>{{ cliente.segundoNombre }}</td>
+            </tr>
+            <tr>
+                <th>PrimerApellido</th>
+                <td>{{ cliente.primerApellido }}</td>
+            </tr>
+            <tr>
+                <th>SegundoApellido</th>
+                <td>{{ cliente.segundoApellido }}</td>
+            </tr>
+            <tr>
+                <th>Dpi</th>
+                <td>{{ cliente.dpi }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <a href="{{ path('cliente_index') }}" class="btn btn-outline-info btn-sm" tabindex="-1" role="button" aria-disabled="true">Regresar a clientes</a>
+
+    <a href="{{ path('cliente_edit', {'id': cliente.id}) }}" class="btn btn-outline-primary btn-sm" tabindex="-1" role="button" aria-disabled="true">Editar</a>
+
+    {{ include('cliente/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}} - Editar Cliente{% endblock %}
+
+{% block body %}
+{{parent()}}
+    <h1>Editar Cliente</h1>
+
+    {{ include('cliente/_form.html.twig', {'button_label': 'Editar'}) }}
+
+    <a href="{{ path('cliente_index') }}" class="btn btn-info btn-sm" tabindex="-1" role="button" aria-disabled="true">Regresar a clientes</a>
+
+    {{ include('cliente/_delete_form.html.twig') }}
+{% endblock %}
